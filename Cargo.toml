@@ -1,0 +1,13 @@
+[package]
+name = "deener"
+version = "0.1.0"
+authors = ["mosm <airman515@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0.38"
+rand = "0.8.2"
+rand_xoshiro = "0.6.0"
+seq_io = "0.3.1"
+structopt = "0.3.21"
+xoshiro = "0.0.5"

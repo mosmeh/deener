@@ -51,11 +51,15 @@ fn main() -> anyhow::Result<()> {
         let seq: Vec<_> = record
             .seq()
             .iter()
-            .map(|x| {
-                if IS_DNA_ASCII[*x as usize] {
-                    *x
+            .filter_map(|x| {
+                if x.is_ascii_alphabetic() {
+                    Some(if IS_DNA_ASCII[*x as usize] {
+                        *x
+                    } else {
+                        *DNA_BASES.choose(&mut rng).unwrap()
+                    })
                 } else {
-                    *DNA_BASES.choose(&mut rng).unwrap()
+                    None
                 }
             })
             .collect();

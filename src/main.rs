@@ -39,7 +39,7 @@ struct Opt {
 fn main() -> anyhow::Result<()> {
     let opt = Opt::from_args();
 
-    let mut reader = Reader::from_path(opt.file).unwrap();
+    let mut reader = Reader::from_path(opt.file)?;
     let out = std::io::stdout();
     let mut out = BufWriter::new(out.lock());
 
